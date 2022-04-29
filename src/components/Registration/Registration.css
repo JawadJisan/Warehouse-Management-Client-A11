@@ -1,0 +1,22 @@
+.signicon{
+    font-size: 50px;
+    size: 100px;
+    color: goldenrod;
+}
+.registration-container{
+}
+.style:hover{
+    background-color: rgb(43, 95, 227);
+}
+.header{
+    font-size: 30px;
+    font-weight: bold;
+}
+.label-text{
+    font-size: 18px;
+    font-weight: 650;
+}
+.disable:disabled{
+    background-color: rgb(0, 145, 255);
+    color: black;
+}
