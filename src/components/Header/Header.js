@@ -8,14 +8,13 @@ import auth from '../../firebase.init';
 
 const Header = () => {
     const [user, loading, error] = useAuthState(auth);
-    console.log(user);
 
     return (
         <Container className="mb-5 mt-2">
         <Navbar collapseOnSelect expand="lg" >
             <Navbar.Brand className='main' as={Link} to='/'>
-                <img className='image' src='logo.jpg' width={45} alt="" />
-                <p>Developer</p>
+                {/* <img className='image' src='logo.jpg' width={45} alt="" /> */}
+                <p>Automotive..</p>
             </Navbar.Brand>
 
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -23,7 +22,7 @@ const Header = () => {
                 <Nav className="me-auto"/>
             
                 <Nav className=''>
-                <Nav.Link  as={Link} to='/services'>Services</Nav.Link>
+                <Nav.Link  as={Link} to='/Inventories'>Inventories</Nav.Link>
                 <Nav.Link  as={Link} to='/blogs'>Blogs</Nav.Link>
                 <Nav.Link  as={Link} to='/about'>About</Nav.Link>
                 <Nav.Link  as={Link} to='/registration'>registration</Nav.Link>

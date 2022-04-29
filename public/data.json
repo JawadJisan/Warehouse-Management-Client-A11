@@ -1,0 +1,53 @@
+[
+    {
+      "name": "ELON MUSK",
+      "description": "The Tesla and SpaceX CEO also said he has no plans to sell any of his bitcoin anytime soon. “If the price of bitcoin goes down, I lose money. I might pump, but I don't dump. I definitely do not believe in getting the price high and selling or anything like that \n",
+      "price": "0",
+      "supplier" : "BMW",
+      "quantity" : "1",
+      "imageURL": "https://upload.wikimedia.org/wikipedia/commons/3/34/Elon_Musk_Royal_Society_%28crop2%29.jpg"
+    },
+    {
+      "name": "BILL GATES",
+      "description": "Microsoft co-founder Bill Gates has urged people to get their vaccinations done quickly to prevent them from getting seriously ill, ...\n",
+      "price": "0",
+      "quantity" : "1",
+      "supplier" : "BMW",
+      "imageURL": "https://imageio.forbes.com/specials-images/imageserve/5f4ebe0c87612dab4f12a597/0x0.jpg?format=jpg&crop=3392,3395,x292,y592,safe&fit=crop"
+    },
+    {
+      "name": "SUNDAR PICHAI",
+      "description": " This includes basic salaries of $ 20 million (Rs 14.2 crore) and $ 24 million (Rs 1704 crore) in annual share. Pichai's new salary package will be applicable from 1 January 2020. \n",
+      "price": "0",
+      "quantity" : "1",
+      "supplier" : "BMW",
+      "imageURL": "https://pbs.twimg.com/profile_images/864282616597405701/M-FEJMZ0_400x400.jpg"
+    },
+    {
+      "name": "Satya Nadella",
+      "description": "Satya Narayana Nadella is an Indian American business executive. He is the executive chairman and CEO of Microsoft, succeeding Steve Ballmer in 2014 as CEO ... \n",
+      "price": "0",
+      "quantity" : "1",
+      "supplier" : "BMW",
+      "imageURL": "https://content.fortune.com/wp-content/uploads/2022/02/Satya-Nadella-Microsoft-CEO-Most-Admired.jpg"
+    },
+    {
+      "name": "ELON MUSK",
+      "description": " Jeff Bezos began his career as a hedge-funder in New York before leaving to start Amazon. Amazon struggled to turn a profit at first, but these days, it's worth $1.7 trillion. Its share price has hit new highs during the pandemic.\n",
+      "price": "0",
+      "quantity" : "1",
+      "supplier" : "BMW",
+      "imageURL": "https://imageio.forbes.com/specials-images/imageserve/5f469ea85cc82fc8d6083f05/Amazon-Founder-and-CEO-Jeff-Bezos/960x0.jpg?fit=bounds&format=jpg&width=960"
+    },
+    {
+      "name": "mark zuckerberg",
+      "description": "TMark Elliot Zuckerberg was born in White Plains, New York, on May 14, 1984, the son of psychiatrist Karen (née Kempner) and dentist Edward Zuckerberg. He and his three sisters (Arielle, businesswoman Randi, and writer Donna) were raised in a Reform Jewish household in Dobbs Ferry, New York.\n",
+      "price": "0",
+      "quantity" : "1",
+      "supplier" : "BMW",
+      "imageURL": "https://menafn.com/updates/pr/Menafn_News_Images/Local_Media_226_menafn.jpg"
+    }
+    
+    
+  ]
+  

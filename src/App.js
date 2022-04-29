@@ -7,6 +7,7 @@ import Login from './components/Login/Login'
 import Registration from './components/Registration/Registration';
 import Inventory from './components/Inventory/Inventory'
 import RequireAuth from './components/RequireAuth/RequireAuth';
+import ManageInventories from './components/ManageInventories/ManageInventories';
 
 
 function App() {
@@ -19,6 +20,9 @@ function App() {
         <Route path='/registration' element={<Registration></Registration>}></Route>
         <Route path='/inventory' element={<RequireAuth>
           <Inventory></Inventory>
+        </RequireAuth>}></Route>
+        <Route path='/manageInventories' element={<RequireAuth>
+          <ManageInventories></ManageInventories>
         </RequireAuth>}></Route>
       </Routes>
 
