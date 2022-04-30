@@ -12,7 +12,7 @@ const AllInventories = ({ item }) => {
         const proceed = window.confirm('Want to delet Inventory?')
         if (proceed) {
             // const url = `http://localhost:5000//inventory/${id}`
-            fetch(`http://localhost:5000//service/${id}`, {
+            fetch(`http://localhost:5000/inventory/${id}`, {
                 method: 'DELETE',
             })
                 .then(res => res.json())
