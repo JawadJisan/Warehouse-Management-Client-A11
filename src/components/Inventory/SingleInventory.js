@@ -35,7 +35,10 @@ const SingleInventory = () => {
             },
         })
         .then(res => res.json())
-        .then(data => alert('Delevered Inventory'));
+        .then(data => {
+            alert('Delevered Inventory'),
+            console.log(data)
+        });
 
 
     }
