@@ -7,9 +7,10 @@ const InventoryHomeItem = ({ item }) => {
     const {_id} = item;
     console.log(_id)
     const navigate = useNavigate();
+    const goInventory = id =>{
+        // navigate(`/inventories/${id}`)
+        navigate(`/service/${id}`);
 
-    const goInventory = _id =>{
-        navigate(`/inventory/${_id}`)
     }
     console.log(item)
     return (
@@ -22,7 +23,7 @@ const InventoryHomeItem = ({ item }) => {
                         {item.description}
                     </Card.Text>
                     <h1>id: {_id} </h1>
-                    <Button variant="secondary" onClick={() =>{goInventory(_id)}}><Link to='/inventory'>Manage Stocks</Link></Button>
+                    <Button variant="secondary" onClick={() =>{goInventory(_id)}}>Manage Stocks</Button>
                 </Card.Body>
             </Card>
         </div>

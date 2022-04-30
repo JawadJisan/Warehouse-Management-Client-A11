@@ -1,14 +1,20 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
+import useInventoryDetails from '../Hooks/useInventoryDetails';
+import useServiceDetail from '../Hooks/useServiceDetail';
 
 const SingleInventory = () => {
-    const {_id} = useParams();
-    console.log('from single Inventories', _id)
+    const {serviceId} = useParams();
+    // const [inventory] =  
+    console.log('from single Inventories', serviceId)
+
+    const [service] = useServiceDetail (serviceId);
 
     return (
         <div>
-                <h1>{_id} </h1>
-                <h1>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quibusdam aspernatur autem, error laboriosam iure nemo? Voluptas veritatis dolorum aliquam. Sed alias molestias sint dolor et eveniet sequi animi, cumque sapiente!</h1>
+                <h1> Welcome to Detail inventory : {serviceId} </h1>
+                <p>Name:  {service?.name} </p>
+                
         </div>
     );
 };

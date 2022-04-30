@@ -18,12 +18,14 @@ function App() {
       <Header></Header>
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
+        <Route path='/service/:serviceId' element={<SingleInventory></SingleInventory>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/registration' element={<Registration></Registration>}></Route>
-        <Route path='/inventory/:id' element={<RequireAuth>
+        <Route path='/inventories/:id' element={<RequireAuth>
 
           <SingleInventory></SingleInventory>
         </RequireAuth>}></Route>
+
         <Route path='/manageInventories' element={<RequireAuth>
           <ManageInventories></ManageInventories>
         </RequireAuth>}></Route>
