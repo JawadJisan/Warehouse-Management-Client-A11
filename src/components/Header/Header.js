@@ -8,6 +8,7 @@ import auth from '../../firebase.init';
 
 const Header = () => {
     const [user, loading, error] = useAuthState(auth);
+    console.log(user)
 
     return (
         <Container className="mb-5 mt-2">
@@ -31,8 +32,8 @@ const Header = () => {
                         }
                         {
                          user ?
-                        (<span className='header-d-name'>{user?.displayName}</span>) : ''
-                        } 
+                        (<span className=''>{user?.email}</span>) : <span>No User</span> } 
+                
                
                 </Nav>
 
