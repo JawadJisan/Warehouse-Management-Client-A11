@@ -63,6 +63,24 @@ const Login = () => {
     }
     console.log(user);
 
+    const handleSignInGoogle = () =>{
+        signInWithGoogle()
+        if(logedUser){
+            const url = 'http://localhost:5000/login';
+            fetch(url,{
+                method: 'POST',
+                body: JSON.stringify({email : logedUser.email}),
+                headers: {
+                    'Content-type': 'application/json; charset=UTF-8',
+                },
+            })
+            .then(res => res.json())
+            .then(data => {
+                localStorage.setItem('accessToken', data.token);
+                navigate(from, {replace: true});
+            })
+        }
+    }
 
     useEffect(()=>{
         const error = googleError || fbError || gitError || emailPassError;
@@ -142,7 +160,7 @@ const Login = () => {
                 <span className='icon fb-icon'><FaFacebook /></span>
             </button>
 
-            <button onClick={()=>signInWithGoogle()} className='  btnStyle p-3'>
+            <button onClick={handleSignInGoogle} className='  btnStyle p-3'>
                 <span className='icon goo-icon'><FaGoogle /></span>
             </button>
             </div>
