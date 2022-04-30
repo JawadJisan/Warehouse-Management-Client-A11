@@ -1,13 +1,13 @@
 import React from 'react';
-import Inventory from '../Inventory/Inventory';
+import Inventories from '../Inventory/Inventories';
 import TopBanner from '../TopBanner/TopBanner';
 
 const Home = () => {
     return (
         <div>
             <TopBanner></TopBanner>
-            <Inventory></Inventory>
-            
+            <Inventories></Inventories>
+                        
         </div>
     );
 };

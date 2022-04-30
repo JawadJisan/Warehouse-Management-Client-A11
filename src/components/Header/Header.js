@@ -22,11 +22,8 @@ const Header = () => {
                 <Nav className="me-auto"/>
             
                 <Nav className=''>
-                <Nav.Link  as={Link} to='/Inventories'>Inventories</Nav.Link>
                 <Nav.Link  as={Link} to='/blogs'>Blogs</Nav.Link>
-                <Nav.Link  as={Link} to='/about'>About</Nav.Link>
                 <Nav.Link  as={Link} to='/registration'>registration</Nav.Link>
-                <Nav.Link  as={Link} to='inventory'>Inventory</Nav.Link>
 
                 { user ? (<button className='header-logut-btn' onClick={()=>signOut(auth)}>Log out</button>)
                         : 
