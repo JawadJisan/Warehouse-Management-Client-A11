@@ -20,7 +20,7 @@ const navigate = useNavigate();
                     <h2 className='title mt-5'>Inventories:{InventoryItems.length} </h2>
                     <div className='inventory-cards'>
                         {
-                            InventoryItems?.map(item => <InventoryHomeItem  key={item._id} item={item}></InventoryHomeItem>)
+                        InventoryItems?.map(item => <InventoryHomeItem  key={item._id} item={item}></InventoryHomeItem>)
                         }
                     </div>
 
