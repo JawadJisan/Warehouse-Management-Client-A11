@@ -1,0 +1,10 @@
+.img-404{
+    width: 50%;
+}
+.notfoundsection{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+.containers{
+    margin-top: 70px;
+}

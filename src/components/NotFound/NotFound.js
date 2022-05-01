@@ -1,11 +1,39 @@
 import React from 'react';
+import { Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import './NotFound.css'
 
 const NotFound = () => {
     return (
-        <div>
-            NotFound
-            NotFound
-        </div>
+        <section className='px-4 py-32 mx-auto max-w-7xl containers'>
+            <div className='notfoundsection'>
+                <div>
+                    <div className='img-404  '>
+                        <img
+                            src='404.jpg'
+                            alt=''
+                        />
+                    </div>
+                </div>
+                <div>
+                    <p className='mb-2 text-xs font-semibold tracking-wide text-gray-500 uppercase'>
+                        Error 404
+                    </p>
+                    <h1 className='mb-4 text-2xl font-extrabold leading-tight tracking-tight text-left text-gray-900 md:text-4xl'>
+                        Oops! The page you're looking for isn't here.
+                    </h1>
+                    <p className='mb-5 text-base text-left text-gray-800 md:text-xl'>
+                        You might have the wrong address, or the page may have moved.
+                    </p>
+                    <Link
+                        to='/'
+                        className='w-full mb-2 py-2 px-3 mt-3   sm:w-auto sm:mb-0'
+                    >
+                        <Button>Back to homepage</Button>
+                    </Link>
+                </div>
+            </div>
+        </section>
     );
 };
 

@@ -1,4 +1,14 @@
 .blogs{
     margin-top: 100px;
-    background-color: brown;
+}
+.blogs-container{
+    margin-left: 60px;
+    margin-right: 60px;
+    text-align: center;
+    background-color: rgb(225, 222, 222);
+    padding: 20px;
+    border-radius: 50px ;
+}
+.title{
+    text-align: left;
 }
