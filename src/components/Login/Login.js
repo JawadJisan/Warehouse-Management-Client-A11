@@ -67,19 +67,22 @@ const Login = () => {
         signInWithGoogle()
         if(logedUser){
             const url = 'http://localhost:5000/login';
-            fetch(url,{
-                method: 'POST',
-                body: JSON.stringify({email : logedUser.email}),
-                headers: {
-                    'Content-type': 'application/json; charset=UTF-8',
-                },
-            })
-            .then(res => res.json())
-            .then(data => {
+
+             fetch(url, {
+            method: 'POST',
+            body: JSON.stringify({ email: logedUser.email }),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+        })
+            .then((response) => response.json())
+            .then((data) => {
                 localStorage.setItem('accessToken', data.token);
-                navigate(from, {replace: true});
-            })
-        }
+                navigate(from, { replace: true });
+
+            });
+
+    }
     }
 
     useEffect(()=>{
@@ -161,7 +164,7 @@ const Login = () => {
             </button>
 
             <button onClick={handleSignInGoogle} className='  btnStyle p-3'>
-                <span className='icon goo-icon'><FaGoogle /></span>
+                <span ><FaGoogle /></span>
             </button>
             </div>
 
