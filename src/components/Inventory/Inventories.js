@@ -13,9 +13,8 @@ const navigate = useNavigate();
     
     return (
         <div>
-            <p>            Inventory Items:{inventoriesItem.length}
-</p>
-            <div className='container'>
+            <p> Inventory Items:{inventoriesItem.length}</p>
+            {/* <div className='container'>
                 <div className='row'>
                     <h2 className='title mt-5'>Inventories:{InventoryItems.length} </h2>
                     <div className='inventory-cards'>
@@ -25,8 +24,22 @@ const navigate = useNavigate();
                     </div>
 
                 </div>
-            </div>
-            <Button onClick={() => navigate('/manageInventories')} className=''>Manage inventories</Button>
+            </div> */}
+            {/* ------------------ */}
+            <div id="Foods" className="  mt-5 pt-5 ">
+            <h1 className="text-center text-light display-2 mt-5 pt-5">Inventories In Our Stocks</h1>
+            <div className="row d-flex justify-content-center ">
+                {
+                    InventoryItems.map((item) => (<InventoryHomeItem item={item} key={item._id}></InventoryHomeItem>))
+                }
+            </div >
+        </div>
+        
+        <div class="d-grid gap-2 col-6 mx-auto">
+  <button onClick={() => navigate('/manageInventories')} className="btn text-center btn-lg m-3 text-light btn-danger mx-auto fw-bold">Manage inventories</button>
+
+</div>
+            {/* <Button onClick={() => navigate('/manageInventories')} className=''>Manage inventories</Button> */}
 
         </div>
     );
