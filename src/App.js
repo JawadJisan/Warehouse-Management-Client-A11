@@ -1,6 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import Footerr from './components/Footerr/Footerr';
 import Header from './components/Header/Header';
 import Home from './components/Home/Home'
 import Login from './components/Login/Login'
@@ -12,6 +11,7 @@ import SingleInventory from './components/Inventory/SingleInventory';
 import NotFound from './components/NotFound/NotFound';
 import AddInventories from './components/AddInventories/AddInventories';
 import MyItems from './components/MyItems/MyItems';
+import Footer from './components/Footer/Footer';
 
 
 function App() {
@@ -36,7 +36,7 @@ function App() {
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
 
-      <Footerr></Footerr>
+      <Footer></Footer>
       
     </div>
   );
