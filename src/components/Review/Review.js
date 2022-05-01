@@ -12,7 +12,7 @@ const Review = () => {
     const [reviews, setReviews] = useState([])
     useEffect(() => {
 
-        fetch('https://secure-inlet-25486.herokuapp.com/reviews')
+        fetch('http://localhost:5000/partners')
             .then(res => res.json())
             .then(data => setReviews(data))
 
@@ -21,7 +21,7 @@ const Review = () => {
         <div id="reviews" className="my-5 text-white">
             <div className="container">
                 <div className="text-center">
-                    <h1 className="text-center display-1 mt-5 pt-5">Our Customers Reviews </h1>
+                    <h1 className="text-center display-1 mt-5 pt-5">Award, nominees & Featured</h1>
                 </div>
                 <div className="row d-flex  mb-5 pb-5">
                     <Swiper
