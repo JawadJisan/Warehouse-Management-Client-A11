@@ -12,6 +12,7 @@ import NotFound from './components/NotFound/NotFound';
 import AddInventories from './components/AddInventories/AddInventories';
 import MyItems from './components/MyItems/MyItems';
 import Footer from './components/Footer/Footer';
+import Blogs from './components/Blogs/Blogs';
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
       <Header></Header>
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
+        <Route path='/blogs' element={<Blogs></Blogs>}></Route>
         <Route path='/myitems' element={<MyItems></MyItems>}> </Route>
         <Route path='/addInventories' element={<AddInventories></AddInventories>}></Route>
         <Route path='/service/:serviceId' element={<SingleInventory></SingleInventory>}></Route>

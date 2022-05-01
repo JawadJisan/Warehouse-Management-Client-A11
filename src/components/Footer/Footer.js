@@ -5,16 +5,7 @@ import { faFacebookF, faInstagram, faGooglePlusG } from '@fortawesome/free-brand
 import logo from '../../images/logo.png'
 const Footer = () => {
 
-    const ourAddress = [
-        { name: "Bashundhara, Dhaka" },
-        { name: " Bangladesh" },
-
-    ]
-    const services = [
-        { name: "Mahfuz Alam" },
-        { name: "Abrar Abir" },
-        { name: "Mohammad Eusha" }
-    ]
+    
 
     return (
         <footer id="Contact" className="footer-area  mt-5 ">
