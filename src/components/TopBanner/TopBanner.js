@@ -29,7 +29,7 @@ const TopBanner = () => {
                         <button style={{ fontSize: "30px" }} className="btn btn-danger btn-lg mr-5 mt-5"><FontAwesomeIcon icon={faChalkboardTeacher} /> Learn More</button>
                     </Col>
                     <Col xs={12} md={6}>
-                        <lottie-player src="https://assets7.lottiefiles.com/packages/lf20_ewndmrlq.json" background="transparent"
+                        <lottie-player src="https://assets3.lottiefiles.com/packages/lf20_asjtnqce.json" background="transparent"
                             speed="1"
                             loop
                             autoplay></lottie-player>
