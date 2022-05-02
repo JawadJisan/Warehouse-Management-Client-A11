@@ -43,6 +43,8 @@ const MyItems = () => {
 
   // getdelivered  by username from delivered collections
   const [di, setDi] = useState([])
+  const [DiUsingName, setDiUsingName] = useState([])
+
   useEffect(()=>{
 
     const getDi = async() =>{
@@ -67,6 +69,7 @@ const MyItems = () => {
     }
     getDi();
   },[])
+
  
 
   const handleDelete = (id) => {
@@ -79,6 +82,7 @@ const MyItems = () => {
       .then(res => res.json())
       .then(data => {
         console.log(data)
+        toast('Inventory Deleted Successfully')
       })
     }
   }
@@ -89,7 +93,6 @@ const MyItems = () => {
       <h2 className='text-center'>You Have Total Delivered {di.length} Inventory  </h2>
 
       {/* get order using userName */}
-      <h1>Delivered Inventories: {di.length} </h1>
       <div className='align-center p-5 mx-auto '>
         {
           di.map(collectedItems =>

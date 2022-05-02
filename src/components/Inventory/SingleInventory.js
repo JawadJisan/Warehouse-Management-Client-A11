@@ -31,24 +31,7 @@ const SingleInventory = () => {
     const [service] = useServiceDetail(serviceId);
     console.log('single service', service)
 
-    const handleDeveler = inventoryItem => {
-        const { name, price, imageURL, quantity } = inventoryItem;
-        console.log(name, price, user?.email, quantity)
-        fetch('https://sheltered-stream-56750.herokuapp.com/delivered', {
-            method: 'POST',
-            body: JSON.stringify({
-                name, price, imageURL, quantity, email: user?.email,
-            }),
-            headers: {
-                'Content-type': 'application/json; charset=UTF-8',
-            },
-        })
-            .then(res => res.json())
-            .then(data => {
-                alert('Delevered Inventory'),
-                    console.log(data)
-            });
-    }
+   
      /* =-------- */
      const handleDelever = inventoryItem =>{
         const { name, price, imageURL, quantity } = inventoryItem;
@@ -107,7 +90,6 @@ const SingleInventory = () => {
 
                         </div>
 
-                        <button onClick={() => handleDeveler(service)} className="btn btn-lg m-3 text-light btn-danger fw-bold"> Delivered</button>
                         <button onClick={() => handleDelever(service)} className="btn btn-lg m-3 text-light btn-danger fw-bold"> Delivered</button>
                     </div>
                 </div >

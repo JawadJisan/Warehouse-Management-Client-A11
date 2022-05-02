@@ -3,6 +3,8 @@ import { Button, Card } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import useInventories from '../Hooks/useInventories';
 import AllInventories from './AllInventories';
+import toast, { Toaster } from 'react-hot-toast';
+
 import './ManageInventories.css'
 
 const ManageInventories = () => {

@@ -6,11 +6,25 @@
     width: 571px;
     display: flex;
 }
+.review-container{
+    border: 1px solid skyblue;
+
+    /* margin: 20px; */
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 5px;
+}
+.table-con{
+    width: 100%;
+}
 .review-item:hover{
     background-color: cornsilk;
 }
 .review-item img{
     width: 91px;
+}
+.imgs{
+    width: 110px;
 }
 
 .review-item-details p{
@@ -23,21 +37,32 @@
     justify-content: space-between;
 }
 
-.review-item .delete-container{
+.delete-container{
     display: flex;
     align-items: center;
 }
 
-.review-item .delete-button{
-    background: rgba(235, 87, 87, 0.3);
+.delete-button{
+    /* background: rgba(235, 87, 87, 0.3); */
+    text-align: center;
+    align-items: center;
     border: 0;
-    height: 55px;
-    width: 55px;
+    height: 70px;
+    width: 70px;
     border-radius: 50%;
     cursor: pointer;
 }
 
 .delete-icon{
     color: rgba(235, 87, 87, 1);
-    font-size: 27px;
+    font-size: 70px;
+    
+}
+.t-header{
+    font-size: 25px;
+}
+.t-cell{
+    font-size: 20px;
+    align-items: center;
+    text-align: center;
 }

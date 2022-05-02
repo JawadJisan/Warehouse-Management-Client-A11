@@ -66,16 +66,16 @@ const Login = () => {
 
     console.log(user);
 
-    const handleSignInGoogle = () =>{
-        signInWithGoogle()
-        if(logedUser){
-            const email = logedUser?.displayName
-          const {data} = axios.post('http://localhost:5000/getToken', {email});
-          console.log(data);
-          localStorage.setItem('accessToken', data.accessToken);
-          navigate(from, { replace: true });
-    }
-    }
+    // const handleSignInGoogle = () =>{
+    //     signInWithGoogle()
+    //     if(logedUser){
+    //         const email = logedUser?.displayName
+    //       const {data} = axios.post('http://localhost:5000/getToken', {email});
+    //       console.log(data);
+    //       localStorage.setItem('accessToken', data.accessToken);
+    //       navigate(from, { replace: true });
+    // }
+    // }
     
     // const handleSignInGoogle = () =>{
     //     signInWithGoogle()
@@ -126,6 +126,7 @@ const Login = () => {
    
     return (
         <div style={{marginTop:'150px'}} className='container  w-50 mx-auto' >
+            <h5 className='text-center p-4'>Please First Register then login for get Your Ordered/Delivered Items  </h5>
         <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label className='label-text' >Email address</Form.Label>
@@ -178,7 +179,7 @@ const Login = () => {
                 <span className='icon fb-icon'><FaFacebook /></span>
             </button>
 
-            <button onClick={handleSignInGoogle} className='  btnStyle p-3'>
+            <button onClick={()=> signInWithGoogle()} className='  btnStyle p-3'>
                 <span className='icon fb-icon'><FaGoogle /></span>
             </button>
             </div>
