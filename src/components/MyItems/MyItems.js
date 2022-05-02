@@ -7,7 +7,10 @@ import ReviewItem from './ReviewItems';
 const MyItems = () => {
 
   const [orderList, setOrderList] = useState([])
+  const [collected, setCollected] = useState([])
   const [user, loading, error] = useAuthState(auth);
+  // console.log(orderList)
+
 
   useEffect(() => {
     const url = `https://sheltered-stream-56750.herokuapp.com/myItems`;
@@ -27,40 +30,42 @@ const MyItems = () => {
     const url = `https://sheltered-stream-56750.herokuapp.com/myCollectedStocks`;
     fetch(url)
       .then(res => res.json())
-      .then(data => setOrderList(data))
+      .then(data => setCollected(data))
   })
 
-  //   const handleRemoveProduct = product =>{
-  //     const rest = orderList.filter(pd => pd._id !== product._id);
-  //     setOrderList(rest);
-  // }
+ 
 
   const handleDelete = (id) => {
-    fetch(`https://sheltered-stream-56750.herokuapp.com/myItems/${id}`, {
-      method: 'DELETE',
-    })
+    const proceed = window.confirm('Are You Sure Delet Your Selected Inventory??')
+    if(proceed){
+
+      fetch(`https://sheltered-stream-56750.herokuapp.com/myItems/${id}`, {
+        method: 'DELETE',
+      })
       .then(res => res.json())
       .then(data => {
         console.log(data)
       })
+    }
   }
-
 
 
   return (
     <div style={{ marginTop: '150px' }}>
-      <h2>Total Orders : {orderList?.length}</h2>
-      <div>
-
+      <h2 className='text-center'>You Have Total Delivered {collected.length} Inventory  </h2>
+      <div className='align-center p-5 mx-auto '>
         {
-          orderList?.map(product => <ReviewItem
+          collected.map(collectedItems =>
+            <ReviewItem
+            key={collectedItems._id}
+            collectedItems={collectedItems}
             handleDelete={handleDelete}
-            key={product._id}
-            product={product}
-          >
-          </ReviewItem>)
+            ></ReviewItem>
+            // <p>Name: {collectedItems.name}</p>
+          )
         }
       </div>
+
     </div>
   )
 }

@@ -19,11 +19,12 @@ const Header = () => {
                 <Nav className="me-auto"/>
                 <Nav className=''>
                 <Nav.Link  as={Link} to='/blogs'><strong class="h4">Blogs</strong></Nav.Link>
+                <Nav.Link  as={Link} to='/contact'><strong class="h4">Contact</strong></Nav.Link>
                 <Nav.Link  as={Link} to='/manageInventories'>
                 <strong class="h4">Manage Inventories</strong></Nav.Link>
                 { user ?<Nav.Link  as={Link} to='/myitems'><strong class="h4">MyItems</strong></Nav.Link>: ''}
                 { user ?<Nav.Link  as={Link} to='/addInventories'><strong class="h4">Add New</strong></Nav.Link>: ''}
-                { user ? (<Button className='w-50 mx-auto' onClick={()=>signOut(auth)}>Log out</Button>)
+                { user ? (<Button className='w-25 mx-auto' onClick={()=>signOut(auth)}>Log out</Button>)
                         : 
                             (<Nav.Link as={Link} to='/login'><strong class="h4">Log in</strong></Nav.Link>)
                         }

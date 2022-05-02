@@ -7,7 +7,7 @@ const useInventories = () => {
         fetch('https://sheltered-stream-56750.herokuapp.com/inventories')
         .then(res=>res.json())
         .then(data=> {setInventoriesItem(data)
-        console.log(data, 'from mongo db')
+        // console.log(data, 'from mongo db')
         });
     },[])
     return [inventoriesItem, setInventoriesItem];

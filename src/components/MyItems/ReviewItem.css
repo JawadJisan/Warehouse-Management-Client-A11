@@ -6,6 +6,9 @@
     width: 571px;
     display: flex;
 }
+.review-item:hover{
+    background-color: cornsilk;
+}
 .review-item img{
     width: 91px;
 }

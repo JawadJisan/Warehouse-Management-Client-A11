@@ -16,11 +16,13 @@ import Blogs from './components/Blogs/Blogs';
 import Review from './components/Review/Review';
 import NewArrived from './components/NewArrived/NewArrived';
 import ReviewItem from './components/MyItems/ReviewItems';
+import ContactUs from './components/ContactUs/ContactUs';
+import AssociatedCompanies from './components/Review/AssociatedCompanies';
 
 
 function App() {
   return (
-    <div className="">
+    <div className="" >
       <Header></Header>
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
@@ -36,23 +38,25 @@ function App() {
 
           <SingleInventory></SingleInventory>
         </RequireAuth>}></Route>
+        <Route path='/contact' element={<ContactUs></ContactUs>}></Route>
+        <Route path='/associatedCompanies' element={<AssociatedCompanies></AssociatedCompanies>}></Route>
 
         {/* <Route path='/ReviewItem'> element={<ReviewItem></ReviewItem>}</Route> */}
 
         <Route path='/manageInventories' element={<RequireAuth>
           <ManageInventories></ManageInventories>
         </RequireAuth>}></Route>
-      <Route path='/review' element={<Review></Review>}></Route>
-      <Route path='/newArrived' element={<NewArrived></NewArrived>}></Route>
+        <Route path='/review' element={<Review></Review>}></Route>
+        <Route path='/newArrived' element={<NewArrived></NewArrived>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
 
 
       </Routes>
 
-      
+
 
       <Footer></Footer>
-      
+
     </div>
   );
 }

@@ -8,7 +8,7 @@ const Footer = () => {
     
 
     return (
-        <footer id="Contact" className="footer-area  mt-5 ">
+        <footer id="Contact" className="footer-area  mt-5 " style={{ backgroundColor: '#12161f' }}>
             <div className="container ">
                 <div className="row py-5 footer">
                     <div className="col-md-6">

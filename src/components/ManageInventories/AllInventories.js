@@ -45,7 +45,7 @@ const AllInventories = (props) => {
     }
 
     return (
-        <div>
+        <div className='text-center align-center'>
         
              <div className="m-1 mb-4 col-md-3">
             <ul className="list-group">
