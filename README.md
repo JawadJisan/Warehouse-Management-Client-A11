@@ -32,6 +32,6 @@ The Website is about A Inventory. In this site you will find some cards about na
 
 • Frontend : CSS, Bootstrap, React Bootstrap, JavaScript, React JS. 
 
-• Backend : NodeJS, Express, Postman, Mongo DB.
+• Backend : NodeJS, Express, Mongo DB.
 
 • Deploy Tools : Firebase, Heroku, Github.

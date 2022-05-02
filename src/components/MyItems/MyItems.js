@@ -2,12 +2,15 @@ import React, { useEffect, useState } from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import ReviewItem from './ReviewItems';
+import axios from 'axios';
+
 
 
 const MyItems = () => {
 
   const [orderList, setOrderList] = useState([])
   const [collected, setCollected] = useState([])
+  
   const [user, loading, error] = useAuthState(auth);
   // console.log(orderList)
 
@@ -33,6 +36,20 @@ const MyItems = () => {
       .then(data => setCollected(data))
   })
 
+
+  // getdelivered  by username from delivered collections
+  const [di, setDi] = useState([])
+  useEffect(()=>{
+
+    const getDi = async() =>{
+      const email = user?.displayName
+      const url =`http://localhost:5000/getdeliveredNAME?email=${email}`;
+      const {data} = await axios.get(url);
+      setDi(data);
+
+    }
+    getDi();
+  },[])
  
 
   const handleDelete = (id) => {
@@ -53,6 +70,9 @@ const MyItems = () => {
   return (
     <div style={{ marginTop: '150px' }}>
       <h2 className='text-center'>You Have Total Delivered {collected.length} Inventory  </h2>
+
+      {/* get order using userName */}
+      <h1>Delivered Inventories: {di.length} </h1>
       <div className='align-center p-5 mx-auto '>
         {
           collected.map(collectedItems =>

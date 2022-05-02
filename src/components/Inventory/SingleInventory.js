@@ -8,19 +8,24 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlusCircle } from '@fortawesome/free-solid-svg-icons'
 import useServiceDetail from '../Hooks/useServiceDetail';
 import './SingleInventory.css'
+import axios from 'axios';
 
 const SingleInventory = () => {
     const [inventoriesItem, setInventoriesItem] = useState([]);
+    const [user, loading, error] = useAuthState(auth);
+    if(user){
+        console.log(user, 'from single')
+    }
+
 
     useEffect(() => {
         fetch('https://sheltered-stream-56750.herokuapp.com/inventories')
             .then(res => res.json())
             .then(data => setInventoriesItem(data))
     }, [])
-    const [user, loading, error] = useAuthState(auth);
+    // const [user, loading, error] = useAuthState(auth);
     const { serviceId } = useParams();
     const navigate = useNavigate();
-    // const [inventory] =  
     console.log('from single Inventories', serviceId)
 
     const [service] = useServiceDetail(serviceId);
@@ -28,6 +33,7 @@ const SingleInventory = () => {
 
     const handleDeveler = inventoryItem => {
         const { name, price, imageURL, quantity } = inventoryItem;
+        console.log(name, price, user?.displayName, quantity)
         fetch('https://sheltered-stream-56750.herokuapp.com/delivered', {
             method: 'POST',
             body: JSON.stringify({
@@ -43,6 +49,23 @@ const SingleInventory = () => {
                     console.log(data)
             });
     }
+     /* =-------- */
+     const handleDelever = inventoryItem =>{
+        const { name, price, imageURL, quantity } = inventoryItem;
+         const order = {
+             name, price, imageURL, quantity, email:user?.displayName
+         }
+         console.log(order)
+         axios.post('http://localhost:5000/deliveredNAME', order)
+         .then(response => {
+             const {data} = response;
+             if(data.insertedId){
+                 alert('Delivered is book')
+             }
+         })
+         
+     }
+
 
     const handleRestock = event =>{
     event.preventDefault();
@@ -80,9 +103,12 @@ const SingleInventory = () => {
                             <h5 class="card-title">Quantity : {service?.quantity}</h5>
                             <p class="card-text">Description {service?.description} </p>
                             <h5>Price : {service?.price} $</h5>
+                            <h5>Email : {user?.displayName} </h5>
+
                         </div>
 
                         <button onClick={() => handleDeveler(service)} className="btn btn-lg m-3 text-light btn-danger fw-bold"> Delivered</button>
+                        <button onClick={() => handleDelever(service)} className="btn btn-lg m-3 text-light btn-danger fw-bold"> Delivered</button>
                     </div>
                 </div >
                 </div>

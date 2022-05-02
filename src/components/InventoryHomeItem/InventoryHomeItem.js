@@ -14,23 +14,9 @@ const InventoryHomeItem = ({ item }) => {
         navigate(`/service/${id}`);
 
     }
-    console.log(item)
+    console.log(item, 'from inventory home item')
     return (
        <div>
-            {/* <div className='card'>
-            <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src={item.imageURL} />
-                <Card.Body>
-                    <Card.Title>{item.name}</Card.Title>
-                    <Card.Text>
-                        {item.description}
-                    </Card.Text>
-                    <h1>id: {_id} </h1>
-                    <Button variant="secondary" onClick={() =>{goInventory(_id)}}>Manage Stocks</Button>
-                </Card.Body>
-            </Card>
-        </div> */}
-        /* ------------------- */
         <div className="col-md-3 m-3 ">
             <div style={{ border: "3px solid #dc3545", borderRadius: "5px" }} class="card h-100 mb-3 card-bg text-light  focus">
                 <img src={item.imageURL} className="card-img-top img-fluid" alt="..." />
