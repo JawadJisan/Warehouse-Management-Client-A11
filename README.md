@@ -1,34 +1,36 @@
 # Website Name
 
-Website Name : Epic Eateries
+Website Name : AUTOMOTIVE
 
 # Website Link
 
-https://epic-eateries-pro.web.app/
+https://warehouse-client-1a22b.web.app/
+
+
+# Server site Link
+
+https://sheltered-stream-56750.herokuapp.com/
 
 # About this Website
 
 ### Project Details :-
 
-The Website is about foods ordering services. In this site you will find some cards about names of foods, its prices and its descriptions . You will find a button in every card named as Order Now. Click on the button then login with your Google account and order your foods.
+The Website is about A Inventory. In this site you will find some cards about names Available Stocks such as car, bike, gagets etc and its prices and its descriptions . You will find a button in every card named and Manage Orders. Click on the button then login with your Google account and order your Inventories
 
 ### Features :-
 
 • Google Sign-In
 
-• Admin Panel
+• Email-password Sign in Methods
 
-• Customer Panel
+• New Inventory Add System
 
-• Food Add System
+• Delet inventory & Update Inventorys etc
 
-• Customer Review System
-
-• Stripe Payment System
 
 ### Technology :-
 
-• Frontend : CSS, Bootstrap, React Bootstrap, JavaScript, React JS, React Redux, Redux Thunk
+• Frontend : CSS, Bootstrap, React Bootstrap, JavaScript, React JS. 
 
 • Backend : NodeJS, Express, Postman, Mongo DB.
 

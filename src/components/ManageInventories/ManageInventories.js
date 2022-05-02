@@ -12,7 +12,7 @@ const ManageInventories = () => {
     const handleDelet = id => {
         const proceed = window.confirm('Are you sure??')
         if (proceed) {
-            const url = `http://localhost:5000/service/${id}`;
+            const url = `https://sheltered-stream-56750.herokuapp.com/service/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
@@ -26,7 +26,7 @@ const ManageInventories = () => {
     }
     const [inventorys, setInventorys] = useState([])
     useEffect(()=>{
-        fetch('http://localhost:5000/inventories')
+        fetch('https://sheltered-stream-56750.herokuapp.com/inventories')
         .then(res=>res.json())
         .then(data => setInventorys(data));
     },[inventorys])
@@ -44,8 +44,11 @@ const ManageInventories = () => {
                     }
                 </div>
             </div>
+            <div class="d-grid gap-2 col-6 mx-auto">
+  <button onClick={() => navigate('/addinventories')} className="btn text-center btn-lg m-3 text-light btn-primary mx-auto fw-bold">Add New Inventories</button>
 
-            <Button onClick={() => navigate('/addinventories')} className=''>add new Inventories</Button>
+</div>
+
 
         </div>
 

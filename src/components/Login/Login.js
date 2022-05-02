@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { Form } from 'react-bootstrap';
 import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 import './Login.css'
-import { FaFacebook, FaGoogle, FaGithub, FaTwitter } from 'react-icons/fa'
+import { FaFacebook, FaGoogle} from 'react-icons/fa'
 import { useAuthState, useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithFacebook, useSignInWithGithub, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import toast, { Toaster } from 'react-hot-toast';
@@ -13,7 +13,6 @@ import { signOut } from 'firebase/auth';
 const Login = () => {
     const [signInWithGoogle, googleUser, googleLoading, googleError] = useSignInWithGoogle(auth);
     const [signInWithFacebook, fbUser, fbLoading, fbError] = useSignInWithFacebook(auth);
-    const [signInWithGithub, gitUser, gitLoading, gitError] = useSignInWithGithub(auth);
 
     const [
         signInWithEmailAndPassword,
@@ -26,7 +25,7 @@ const Login = () => {
     
     // Currently loged user:
     const [logedUser, logedLoading, logedError] = useAuthState(auth);
-    console.log(logedUser, logedError);
+    console.log(logedUser?.email, 'logggeddd usss');
 
     
       const emailRef = useRef('');
@@ -39,7 +38,7 @@ const Login = () => {
 
       const [sendPasswordResetEmail, sending, error] = useSendPasswordResetEmail(auth);
 
-      if(user || googleUser || fbUser || gitUser){
+      if(user || googleUser || fbUser ){
         navigate(from, {replace: true});
     }
 
@@ -66,17 +65,20 @@ const Login = () => {
     const handleSignInGoogle = () =>{
         signInWithGoogle()
         if(logedUser){
-            const url = 'http://localhost:5000/login';
+            const url = 'https://sheltered-stream-56750.herokuapp.com/login';
 
              fetch(url, {
             method: 'POST',
-            body: JSON.stringify({ email: logedUser.email }),
+            body: JSON.stringify({ 
+                email: logedUser?.email
+            }),
             headers: {
                 'Content-type': 'application/json; charset=UTF-8',
             },
         })
             .then((response) => response.json())
             .then((data) => {
+                console.log(data)
                 localStorage.setItem('accessToken', data.token);
                 navigate(from, { replace: true });
 
@@ -86,7 +88,7 @@ const Login = () => {
     }
 
     useEffect(()=>{
-        const error = googleError || fbError || gitError || emailPassError;
+        const error = googleError || fbError || emailPassError;
         if(error){
             console.log(error);
             console.log(error?.code);
@@ -103,12 +105,12 @@ const Login = () => {
                 },
               });
         }
-    },[googleError, fbError, gitError,emailPassError ])
+    },[googleError, fbError,emailPassError ])
 
 
    
     return (
-        <div className='container mt-5 w-50 mx-auto'>
+        <div style={{marginTop:'150px'}} className='container  w-50 mx-auto' >
         <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label className='label-text' >Email address</Form.Label>
@@ -155,16 +157,14 @@ const Login = () => {
             <h5 className='text-center'>continue with</h5>
             <div className='d-flex justify-content-center'>
 
-            <button onClick={()=>signInWithGithub()} className='   btnStyle p-3'>
-                <span className='icon git-icon'><FaGithub /></span>
-            </button>
+          
 
             <button onClick={()=>signInWithFacebook()} className=' p-3  btnStyle '>
                 <span className='icon fb-icon'><FaFacebook /></span>
             </button>
 
             <button onClick={handleSignInGoogle} className='  btnStyle p-3'>
-                <span ><FaGoogle /></span>
+                <span className='icon fb-icon'><FaGoogle /></span>
             </button>
             </div>
 

@@ -4,6 +4,8 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate, useParams } from 'react-router-dom';
 import auth from '../../firebase.init';
 import useInventoryDetails from '../Hooks/useInventoryDetails';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlusCircle } from '@fortawesome/free-solid-svg-icons'
 import useServiceDetail from '../Hooks/useServiceDetail';
 import './SingleInventory.css'
 
@@ -11,7 +13,7 @@ const SingleInventory = () => {
     const [inventoriesItem, setInventoriesItem] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/inventories')
+        fetch('https://sheltered-stream-56750.herokuapp.com/inventories')
             .then(res => res.json())
             .then(data => setInventoriesItem(data))
     }, [])
@@ -26,7 +28,7 @@ const SingleInventory = () => {
 
     const handleDeveler = inventoryItem => {
         const { name, price, imageURL, quantity } = inventoryItem;
-        fetch('http://localhost:5000/delivered', {
+        fetch('https://sheltered-stream-56750.herokuapp.com/delivered', {
             method: 'POST',
             body: JSON.stringify({
                 name, price, imageURL, quantity, email: user?.email,
@@ -40,6 +42,25 @@ const SingleInventory = () => {
                 alert('Delevered Inventory'),
                     console.log(data)
             });
+    }
+
+    const handleRestock = event =>{
+    event.preventDefault();
+    const name = event.target.name.value;
+    const quantity = event.target.quantity.value;
+    console.log(name, quantity)
+
+    fetch(`http://localhost:4000/inventorie/${serviceId}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name, quantity }),
+      })
+        .then((res) => res.json())
+        .then((data) => console.log(data));
+    
+
 
 
     }
@@ -65,6 +86,27 @@ const SingleInventory = () => {
                     </div>
                 </div >
                 </div>
+
+                {/* --------------- update the stocks */}
+                <div className="text-center mt-5 pt-5">
+                <h1 className="mt-5 pt-5">Restock The Items!!!!</h1>
+            </div>
+
+                <form className="row mt-5 m-5" 
+                onSubmit={handleRestock}>
+                <div className="col-md-6 mt-3">
+                    <label for="name" className="form-label"><h4>Inventory Name</h4></label>
+                    <input style={{ backgroundColor: "#050c1f" }} placeholder="Write Inventory Name" name="name" className="form-control text-light" />
+                </div>
+                <div className="col-md-6 mt-3">
+                    <label for="quantity" className="form-label"><h4>Quantity</h4></label>
+                    <input style={{ backgroundColor: "#050c1f" }} placeholder="Quantity" name="quantity" className="form-control text-light" />
+                </div>
+
+                <div className="col-12 d-grid ">
+                    <button className="mt-4 btn btn-danger btn-lg btn-block" type="submit" ><FontAwesomeIcon icon={faPlusCircle} />  Update</button>
+                </div>
+            </form>
 
                 <div class="d-grid gap-2 col-6 mx-auto">
                     <button onClick={() => navigate('/manageInventories')} className="btn text-center btn-lg m-3 text-light btn-danger mx-auto fw-bold">Manage inventories</button>

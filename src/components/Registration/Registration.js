@@ -75,7 +75,7 @@ const Registration = () => {
 
 
     return (
-        <div className='registration-container'>
+        <div style={{marginTop:'150px'}} className='registration-container'>
             <h5 className='text-center header'>Create Account</h5>
 
             <button onClick={()=>signInWithGoogle()} className='w-50 btn d-block mx-auto btnStyle googleStyle style' >

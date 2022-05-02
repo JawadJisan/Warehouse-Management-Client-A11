@@ -23,7 +23,7 @@ const AddInventories = () => {
 
     console.log(name, price, description, imageURL, quantity, supplier);
 
-    const url = 'http://localhost:5000/addInventories'
+    const url = 'https://sheltered-stream-56750.herokuapp.com/addInventories'
     fetch(url, {
         method: 'POST',
         body: JSON.stringify({name, description, price, quantity, supplier, imageURL }),
@@ -42,19 +42,7 @@ const AddInventories = () => {
     return (
         <div className='addNew' style={{ backgroundColor: "#12161f", height: "925px", color: "white" }}>
             
-            {/* <Form onSubmit={addNewInventories}>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Control required className="mb-3" name='name' type="text" placeholder="Name" />
-                    <Form.Control required className="mb-3" name='Price' type="number" placeholder="Price" />
-                    <Form.Control required className="mb-3" name='description' type="text" placeholder="description" />
-                    <Form.Control required className="mb-3" name='imageURL' type="text" placeholder="imageURL" />
-                    <Form.Control required className="mb-3" name='quantity' type="number" placeholder="quantity" />
-                    <Form.Control required className="mb-3" name='supplier' type="text" placeholder="supplier" />
-                </Form.Group>                
-                <Button variant="primary" type="submit">
-                    Submit
-                </Button>
-            </Form> */}
+            
             {/* -------------------------- */}
             <div className="text-center mt-5 pt-5">
                 <h1 className="mt-5 pt-5">Add New Inventories!!!!</h1>
@@ -63,28 +51,28 @@ const AddInventories = () => {
             <form className="row mt-5 m-5" onSubmit={addNewInventories}>
                 <div className="col-md-6 mt-3">
                     <label for="name" className="form-label"><h4>Inventory Name</h4></label>
-                    <input style={{ backgroundColor: "#050c1f" }} placeholder="Write Inventory Name" name="name" className="form-control text-light" />
+                    <input required style={{ backgroundColor: "#050c1f" }} placeholder="Write Inventory Name" name="name" className="form-control text-light" />
                 </div>
                 <div className="col-md-6 mt-3">
                     <label for="Price" className="form-label"><h4>Price</h4></label>
-                    <input style={{ backgroundColor: "#050c1f" }} placeholder="Price" name="Price" className="form-control text-light" />
+                    <input required style={{ backgroundColor: "#050c1f" }} placeholder="Price" name="Price" className="form-control text-light" />
                 </div>
                 <div className="col-md-6 mt-3">
                     <label for="description" className="form-label"><h4>Description</h4></label>
-                    <input style={{ backgroundColor: "#050c1f" }} placeholder="About Inventory" name="description" className="form-control text-light" />
+                    <input required style={{ backgroundColor: "#050c1f" }} placeholder="About Inventory" name="description" className="form-control text-light" />
                 </div>
                 <div className="col-md-6 mt-3">
                     <label for="quantity" className="form-label"><h4>Quantity</h4></label>
-                    <input style={{ backgroundColor: "#050c1f" }} placeholder="Quantity" name="quantity" className="form-control text-light" />
+                    <input required style={{ backgroundColor: "#050c1f" }} placeholder="Quantity" name="quantity" className="form-control text-light" />
                 </div>
 
                 <div className="col-md-6 mt-3">
                     <label for="supplier" className="form-label"><h4>Suppeliar</h4></label>
-                    <input style={{ backgroundColor: "#050c1f" }} placeholder="Company Name(e.g: BMW, AUDI, etc" name="supplier" className="form-control text-light"  />
+                    <input required style={{ backgroundColor: "#050c1f" }} placeholder="Company Name(e.g: BMW, AUDI, etc" name="supplier" className="form-control text-light"  />
                 </div>
                 <div className="col-md-6 mt-3">
                     <label className="imageURL"><h4>Insert Image URL</h4></label>
-                    <input style={{ backgroundColor: "#050c1f" }} placeholder="Image Url" name="imageURL" className="form-control text-light"  />
+                    <input required style={{ backgroundColor: "#050c1f" }} placeholder="Image Url" name="imageURL" className="form-control text-light"  />
 
                 </div>
                 <div className="col-12 d-grid ">
