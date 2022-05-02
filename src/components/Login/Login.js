@@ -7,6 +7,8 @@ import { useAuthState, useSendPasswordResetEmail, useSignInWithEmailAndPassword,
 import auth from '../../firebase.init';
 import toast, { Toaster } from 'react-hot-toast';
 import { signOut } from 'firebase/auth';
+import axios from 'axios';
+
 
 
 
@@ -25,19 +27,13 @@ const Login = () => {
     
     // Currently loged user:
     const [logedUser, logedLoading, logedError] = useAuthState(auth);
-    console.log(logedUser?.email, 'logggeddd usss');
-
-    
+    console.log(logedUser?.email, 'logggeddd usss');    
       const emailRef = useRef('');
       const passwordRef = useRef('');
-
       const navigate = useNavigate();
       const location = useLocation();
       const from = location.state?.from?.pathname || '/';
-
-
       const [sendPasswordResetEmail, sending, error] = useSendPasswordResetEmail(auth);
-
       if(user || googleUser || fbUser ){
         navigate(from, {replace: true});
     }
@@ -53,39 +49,58 @@ const Login = () => {
         }
     }
 
-      const handleSubmit = event =>{
+    // if user will first registee and than see her added items then he will see her items properly
+      const handleSubmit = async event =>{
           event.preventDefault();
 
           const email = emailRef.current.value;
           const password = passwordRef.current.value;
-          signInWithEmailAndPassword(email, password);
+          await signInWithEmailAndPassword(email, password);
+          const {data} = await axios.post('http://localhost:5000/getToken', {email});
+          console.log(data);
+          localStorage.setItem('accessToken', data.accessToken);
+          navigate(from, { replace: true });
     }
+
+
+
     console.log(user);
 
     const handleSignInGoogle = () =>{
         signInWithGoogle()
         if(logedUser){
-            const url = 'https://sheltered-stream-56750.herokuapp.com/login';
-
-             fetch(url, {
-            method: 'POST',
-            body: JSON.stringify({ 
-                email: logedUser?.email
-            }),
-            headers: {
-                'Content-type': 'application/json; charset=UTF-8',
-            },
-        })
-            .then((response) => response.json())
-            .then((data) => {
-                console.log(data)
-                localStorage.setItem('accessToken', data.token);
-                navigate(from, { replace: true });
-
-            });
-
+            const email = logedUser?.displayName
+          const {data} = axios.post('http://localhost:5000/getToken', {email});
+          console.log(data);
+          localStorage.setItem('accessToken', data.accessToken);
+          navigate(from, { replace: true });
     }
     }
+    
+    // const handleSignInGoogle = () =>{
+    //     signInWithGoogle()
+    //     if(logedUser){
+    //         const url = 'https://sheltered-stream-56750.herokuapp.com/login';
+
+    //          fetch(url, {
+    //         method: 'POST',
+    //         body: JSON.stringify({ 
+    //             email: logedUser?.email
+    //         }),
+    //         headers: {
+    //             'Content-type': 'application/json; charset=UTF-8',
+    //         },
+    //     })
+    //         .then((response) => response.json())
+    //         .then((data) => {
+    //             console.log(data)
+    //             localStorage.setItem('accessToken', data.token);
+    //             navigate(from, { replace: true });
+    //         });
+    // }
+    // }
+
+
 
     useEffect(()=>{
         const error = googleError || fbError || emailPassError;

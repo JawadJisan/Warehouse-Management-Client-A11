@@ -33,7 +33,7 @@ const SingleInventory = () => {
 
     const handleDeveler = inventoryItem => {
         const { name, price, imageURL, quantity } = inventoryItem;
-        console.log(name, price, user?.displayName, quantity)
+        console.log(name, price, user?.email, quantity)
         fetch('https://sheltered-stream-56750.herokuapp.com/delivered', {
             method: 'POST',
             body: JSON.stringify({
@@ -53,7 +53,7 @@ const SingleInventory = () => {
      const handleDelever = inventoryItem =>{
         const { name, price, imageURL, quantity } = inventoryItem;
          const order = {
-             name, price, imageURL, quantity, email:user?.displayName
+             name, price, imageURL, quantity, email:user?.email
          }
          console.log(order)
          axios.post('http://localhost:5000/deliveredNAME', order)
@@ -103,7 +103,7 @@ const SingleInventory = () => {
                             <h5 class="card-title">Quantity : {service?.quantity}</h5>
                             <p class="card-text">Description {service?.description} </p>
                             <h5>Price : {service?.price} $</h5>
-                            <h5>Email : {user?.displayName} </h5>
+                            <h5>Email : {user?.email} </h5>
 
                         </div>
 

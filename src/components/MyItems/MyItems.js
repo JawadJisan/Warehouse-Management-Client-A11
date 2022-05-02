@@ -3,6 +3,10 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import ReviewItem from './ReviewItems';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import { signOut } from 'firebase/auth';
+import toast, { Toaster } from 'react-hot-toast';
+
 
 
 
@@ -10,7 +14,7 @@ const MyItems = () => {
 
   const [orderList, setOrderList] = useState([])
   const [collected, setCollected] = useState([])
-  
+  const navigate = useNavigate();
   const [user, loading, error] = useAuthState(auth);
   // console.log(orderList)
 
@@ -42,11 +46,24 @@ const MyItems = () => {
   useEffect(()=>{
 
     const getDi = async() =>{
-      const email = user?.displayName
+      const email = user?.email
       const url =`http://localhost:5000/getdeliveredNAME?email=${email}`;
-      const {data} = await axios.get(url);
-      setDi(data);
-
+      try{
+        const {data} = await axios.get(url,{
+          headers:{
+            authorization: `Bearer ${localStorage.getItem('accessToken')}`
+          }
+        });
+        setDi(data);
+      }
+      catch(error){
+        console.log(error.message);
+        toast(error.message)
+        if(error.response.status === 401 || error.response.status === 403){
+          signOut(auth)
+          navigate('/registration');
+        }
+      }
     }
     getDi();
   },[])
@@ -69,21 +86,22 @@ const MyItems = () => {
 
   return (
     <div style={{ marginTop: '150px' }}>
-      <h2 className='text-center'>You Have Total Delivered {collected.length} Inventory  </h2>
+      <h2 className='text-center'>You Have Total Delivered {di.length} Inventory  </h2>
 
       {/* get order using userName */}
       <h1>Delivered Inventories: {di.length} </h1>
       <div className='align-center p-5 mx-auto '>
         {
-          collected.map(collectedItems =>
+          di.map(collectedItems =>
             <ReviewItem
-            key={collectedItems._id}
+            key={di._id}
             collectedItems={collectedItems}
             handleDelete={handleDelete}
             ></ReviewItem>
             // <p>Name: {collectedItems.name}</p>
           )
         }
+        <Toaster></Toaster>
       </div>
 
     </div>

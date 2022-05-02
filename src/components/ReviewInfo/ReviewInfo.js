@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 
 const ReviewInfo = ({review}) => {
-    console.log(review, 'from partners')
+    // console.log(review, 'from partners')
     const { quote, name, img } = review;
     return (
         <div style={{ backgroundColor: "#12161f", color: "white" }} className="card col-md-12 w-100 h-100 mb-3  shadow-lg border-danger review-bg">
