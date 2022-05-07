@@ -50,28 +50,28 @@ const SingleInventory = () => {
      }
 
 
-    const handleRestock = event =>{
-    event.preventDefault();
-    const name = event.target.name.value;
-    const quantity = event.target.quantity.value;
-    console.log(name, quantity)
 
-    // fetch(`http://localhost:4000/inventorie/${serviceId}`, {
-    fetch(`https://sheltered-stream-56750.herokuapp.com/inventorie/${serviceId}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ name, quantity }),
-      })
-        .then((res) => res.json())
-        .then((data) => console.log(data));
-    
 
+    const updateQuantity = e =>{
+        e.preventDefault();
+        if(e.target.quantity.value >0){
+            const newQ = parseInt(e.target.quantity.value) ;
+            fetch(`https://sheltered-stream-56750.herokuapp.com/inventorie/${serviceId}`, {
+                method: "PUT",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ quantity: newQ  }),
+              })
+                .then((res) => res.json())
+                .then((data) => {console.log(data)
+                    alert("quantity added")
+                    e.target.reset();
+                });
+        }
 
 
     }
-
     return (
         <div style={{ backgroundColor: '#EBF4FA', marginTop: '100px' }} >
 
@@ -102,12 +102,9 @@ const SingleInventory = () => {
             </div>
 
                 <form className="row mt-5 m-5" 
-                onSubmit={handleRestock}>
-                <div className="col-md-6 mt-3">
-                    <label for="name" className="form-label"><h4>Inventory Name</h4></label>
-                    <input style={{ backgroundColor: "#050c1f" }} placeholder="Write Inventory Name" name="name" className="form-control text-light" />
-                </div>
-                <div className="col-md-6 mt-3">
+                onSubmit={updateQuantity}>
+                
+                <div className="col-md-12 mt-3">
                     <label for="quantity" className="form-label"><h4>Quantity</h4></label>
                     <input style={{ backgroundColor: "#050c1f" }} placeholder="Quantity" name="quantity" className="form-control text-light" />
                 </div>
