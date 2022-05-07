@@ -39,7 +39,7 @@ const SingleInventory = () => {
              name, price, imageURL, quantity, email:user?.email
          }
          console.log(order)
-         axios.post('http://localhost:5000/deliveredNAME', order)
+         axios.post('https://sheltered-stream-56750.herokuapp.com/deliveredNAME', order)
          .then(response => {
              const {data} = response;
              if(data.insertedId){
@@ -56,7 +56,8 @@ const SingleInventory = () => {
     const quantity = event.target.quantity.value;
     console.log(name, quantity)
 
-    fetch(`http://localhost:4000/inventorie/${serviceId}`, {
+    // fetch(`http://localhost:4000/inventorie/${serviceId}`, {
+    fetch(`https://sheltered-stream-56750.herokuapp.com/inventorie/${serviceId}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

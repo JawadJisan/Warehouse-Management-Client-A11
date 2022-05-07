@@ -49,7 +49,8 @@ const MyItems = () => {
 
     const getDi = async() =>{
       const email = user?.email
-      const url =`http://localhost:5000/getdeliveredNAME?email=${email}`;
+      // const url =`http://localhost:5000/getdeliveredNAME?email=${email}`;
+      const url =`https://sheltered-stream-56750.herokuapp.com/getdeliveredNAME?email=${email}`;
       try{
         const {data} = await axios.get(url,{
           headers:{
