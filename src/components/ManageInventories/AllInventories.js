@@ -17,8 +17,8 @@ const AllInventories = (props) => {
     // const deletInventories = id => {
     //     const proceed = window.confirm('Want to delet Inventory?')
     //     if (proceed) {
-    //         // const url = `http://localhost:5000//inventory/${id}`
-    //         fetch(`http://localhost:5000/inventory/${id}`, {
+    //         // const url = `https://sheltered-stream-56750.herokuapp.com//inventory/${id}`
+    //         fetch(`https://sheltered-stream-56750.herokuapp.com/inventory/${id}`, {
     //             method: 'DELETE',
     //         })
     //             .then(res => res.json())
@@ -33,7 +33,7 @@ const AllInventories = (props) => {
 
         const proceed = window.confirm('Are you sure??')
         if (proceed) {
-            const url = `http://localhost:5000/service/${id}`;
+            const url = `https://sheltered-stream-56750.herokuapp.com/service/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })

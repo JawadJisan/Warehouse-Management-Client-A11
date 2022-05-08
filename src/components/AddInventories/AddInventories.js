@@ -23,7 +23,7 @@ const AddInventories = () => {
 
     console.log(name, price, description, imageURL, quantity, supplier);
 
-    const url = 'http://localhost:5000/addInventories'
+    const url = 'https://sheltered-stream-56750.herokuapp.com/addInventories'
     fetch(url, {
         method: 'POST',
         body: JSON.stringify({name, description, price, quantity, supplier, imageURL }),

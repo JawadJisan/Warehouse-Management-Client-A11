@@ -56,8 +56,8 @@ const Login = () => {
           const email = emailRef.current.value;
           const password = passwordRef.current.value;
           await signInWithEmailAndPassword(email, password);
-        //   const {data} = await axios.post('http://localhost:5000/getToken', {email});
-          const {data} = await axios.post('http://localhost:5000/getToken', {email});
+        //   const {data} = await axios.post('https://sheltered-stream-56750.herokuapp.com/getToken', {email});
+          const {data} = await axios.post('https://sheltered-stream-56750.herokuapp.com/getToken', {email});
           console.log(data.accessToken);
           localStorage.setItem('accessToken', data.accessToken);
           navigate(from, { replace: true });
@@ -68,7 +68,7 @@ const Login = () => {
     //     signInWithGoogle()
     //     if(logedUser){
     //         const email = logedUser?.displayName
-    //       const {data} = axios.post('http://localhost:5000/getToken', {email});
+    //       const {data} = axios.post('https://sheltered-stream-56750.herokuapp.com/getToken', {email});
     //       console.log(data);
     //       localStorage.setItem('accessToken', data.accessToken);
     //       navigate(from, { replace: true });
@@ -78,7 +78,7 @@ const Login = () => {
     // const handleSignInGoogle = () =>{
     //     signInWithGoogle()
     //     if(logedUser){
-    //         const url = 'http://localhost:5000/login';
+    //         const url = 'https://sheltered-stream-56750.herokuapp.com/login';
 
     //          fetch(url, {
     //         method: 'POST',
