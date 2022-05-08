@@ -6,6 +6,7 @@ import auth from '../../firebase.init';
 import { FaGoogle   } from 'react-icons/fa'
 import toast, { Toaster } from 'react-hot-toast';
 import './Registration.css'
+import Loading from '../Loading/Loading';
 
 
 
@@ -72,6 +73,9 @@ const Registration = () => {
               });
         }
     },[googleError, error])
+    if (googleLoading || loading) {
+        return <Loading />
+    }
 
 
     return (

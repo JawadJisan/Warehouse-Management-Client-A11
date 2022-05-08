@@ -19,7 +19,7 @@ const SingleInventory = () => {
 
 
     useEffect(() => {
-        fetch('https://sheltered-stream-56750.herokuapp.com/inventories')
+        fetch('http://localhost:5000/inventories')
             .then(res => res.json())
             .then(data => setInventoriesItem(data))
     }, [])
@@ -39,7 +39,7 @@ const SingleInventory = () => {
              name, price, imageURL, quantity, email:user?.email
          }
          console.log(order)
-         axios.post('https://sheltered-stream-56750.herokuapp.com/deliveredNAME', order)
+         axios.post('http://localhost:5000/deliveredNAME', order)
          .then(response => {
              const {data} = response;
              if(data.insertedId){
@@ -56,7 +56,7 @@ const SingleInventory = () => {
         e.preventDefault();
         if(e.target.quantity.value >0){
             const newQ = parseInt(e.target.quantity.value) ;
-            fetch(`https://sheltered-stream-56750.herokuapp.com/inventorie/${serviceId}`, {
+            fetch(`http://localhost:5000/inventorie/${serviceId}`, {
                 method: "PUT",
                 headers: {
                   "Content-Type": "application/json",

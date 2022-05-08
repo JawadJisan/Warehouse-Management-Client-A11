@@ -8,7 +8,7 @@ import auth from '../../firebase.init';
 import logo from '../../images/logo.png'
 const Header = () => {
     const [user, loading, error] = useAuthState(auth);
-    console.log(user)
+    // console.log(user)
 
     return (
            <Navbar style={{ backgroundColor: "#050c1a", color: "white" }} collapseOnSelect expand="lg" variant="dark" fixed ="top">
@@ -30,7 +30,7 @@ const Header = () => {
                         }
                     {
                          user ?
-                        (<span className=''>{user?.displayName}</span>) : '' } 
+                        (<span className=''>{user?.email}</span>) : '' } 
                    
                 
                

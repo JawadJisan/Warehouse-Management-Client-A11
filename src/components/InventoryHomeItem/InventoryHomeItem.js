@@ -7,14 +7,14 @@ import './InventoryHomeItem.css'
 
 const InventoryHomeItem = ({ item }) => {
     const {_id} = item;
-    console.log(_id)
+    // console.log(_id)
     const navigate = useNavigate();
     const goInventory = id =>{
         // navigate(`/inventories/${id}`)
         navigate(`/service/${id}`);
 
     }
-    console.log(item, 'from inventory home item')
+    // console.log(item, 'from inventory home item')
     return (
        <div>
         <div className="col-md-3 m-3 ">

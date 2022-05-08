@@ -16,11 +16,11 @@ const MyItems = () => {
   const [collected, setCollected] = useState([])
   const navigate = useNavigate();
   const [user, loading, error] = useAuthState(auth);
-  // console.log(orderList)
+  // console.log(user)
 
 
   useEffect(() => {
-    const url = `https://sheltered-stream-56750.herokuapp.com/myItems`;
+    const url = `http://localhost:5000/myItems`;
     fetch(url, {
       headers: {
         'authorization': `${user?.email} ${localStorage.getItem("accessToken")}`,
@@ -34,7 +34,7 @@ const MyItems = () => {
   //  thats why the specific selected items or my delevered items dont shows correctly
 
   useEffect(() => {
-    const url = `https://sheltered-stream-56750.herokuapp.com/myCollectedStocks`;
+    const url = `http://localhost:5000/myCollectedStocks`;
     fetch(url)
       .then(res => res.json())
       .then(data => setCollected(data))
@@ -50,7 +50,7 @@ const MyItems = () => {
     const getDi = async() =>{
       const email = user?.email
       // const url =`http://localhost:5000/getdeliveredNAME?email=${email}`;
-      const url =`https://sheltered-stream-56750.herokuapp.com/getdeliveredNAME?email=${email}`;
+      const url =`http://localhost:5000/getdeliveredNAME?email=${email}`;
       try{
         const {data} = await axios.get(url,{
           headers:{
@@ -69,7 +69,7 @@ const MyItems = () => {
       }
     }
     getDi();
-  },[])
+  },[di])
 
  
 
@@ -77,7 +77,7 @@ const MyItems = () => {
     const proceed = window.confirm('Are You Sure Delet Your Selected Inventory??')
     if(proceed){
 
-      fetch(`https://sheltered-stream-56750.herokuapp.com/myItems/${id}`, {
+      fetch(`http://localhost:5000/myItems/${id}`, {
         method: 'DELETE',
       })
       .then(res => res.json())

@@ -4,7 +4,7 @@ const useInventories = () => {
     const [inventoriesItem, setInventoriesItem] = useState([]);
     
     useEffect(()=>{
-        fetch('https://sheltered-stream-56750.herokuapp.com/inventories')
+        fetch('http://localhost:5000/inventories')
         .then(res=>res.json())
         .then(data=> {setInventoriesItem(data)
         // console.log(data, 'from mongo db')

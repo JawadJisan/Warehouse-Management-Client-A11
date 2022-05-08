@@ -15,7 +15,7 @@ const ManageInventories = () => {
     const handleDelet = id => {
         const proceed = window.confirm('Are you sure??')
         if (proceed) {
-            const url = `https://sheltered-stream-56750.herokuapp.com/service/${id}`;
+            const url = `http://localhost:5000/service/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
@@ -29,7 +29,7 @@ const ManageInventories = () => {
     }
     const [inventorys, setInventorys] = useState([])
     useEffect(()=>{
-        fetch('https://sheltered-stream-56750.herokuapp.com/inventories')
+        fetch('http://localhost:5000/inventories')
         .then(res=>res.json())
         .then(data => setInventorys(data));
     },[inventorys])
