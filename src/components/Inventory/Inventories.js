@@ -13,7 +13,7 @@ const navigate = useNavigate();
     
     return (
         <div>
-            <p> Inventory Items:{inventoriesItem.length}</p>
+            <p> Inventory Item:{inventoriesItem.length}</p>
             {/* <div className='container'>
                 <div className='row'>
                     <h2 className='title mt-5'>Inventories:{InventoryItems.length} </h2>

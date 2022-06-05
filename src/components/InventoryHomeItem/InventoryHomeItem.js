@@ -12,7 +12,6 @@ const InventoryHomeItem = ({ item }) => {
     const goInventory = id =>{
         // navigate(`/inventories/${id}`)
         navigate(`/service/${id}`);
-
     }
     // console.log(item, 'from inventory home item')
     return (
