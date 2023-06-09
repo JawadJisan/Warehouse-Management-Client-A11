@@ -12,7 +12,7 @@ const Review = () => {
     const [reviews, setReviews] = useState([])
     useEffect(() => {
 
-        fetch('https://sheltered-stream-56750.herokuapp.com/partners')
+        fetch('https://warehouse-management-server-a11.onrender.com/partners')
             .then(res => res.json())
             .then(data => setReviews(data))
 

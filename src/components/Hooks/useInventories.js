@@ -4,7 +4,7 @@ const useInventories = () => {
     const [inventoriesItem, setInventoriesItem] = useState([]);
     
     useEffect(()=>{
-        fetch('https://sheltered-stream-56750.herokuapp.com/inventories')
+        fetch('https://warehouse-management-server-a11.onrender.com/inventories')
         .then(res=>res.json())
         .then(data=> {setInventoriesItem(data)
         // console.log(data, 'from mongo db')

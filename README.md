@@ -6,10 +6,9 @@ Website Name : AUTOMOTIVE
 
 https://warehouse-client-1a22b.web.app/
 
-
 # Server site Link
 
-https://sheltered-stream-56750.herokuapp.com/
+https://warehouse-management-server-a11.onrender.com/
 
 # About this Website
 
@@ -27,10 +26,9 @@ The Website is about A Inventory. In this site you will find some cards about na
 
 • Delet inventory & Update Inventorys etc
 
-
 ### Technology :-
 
-• Frontend : CSS, Bootstrap, React Bootstrap, JavaScript, React JS. 
+• Frontend : CSS, Bootstrap, React Bootstrap, JavaScript, React JS.
 
 • Backend : NodeJS, Express, Mongo DB.
 

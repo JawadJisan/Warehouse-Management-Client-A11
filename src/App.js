@@ -4,7 +4,6 @@ import Header from './components/Header/Header';
 import Home from './components/Home/Home'
 import Login from './components/Login/Login'
 import Registration from './components/Registration/Registration';
-import Inventory from './components/Inventory/Inventories'
 import RequireAuth from './components/RequireAuth/RequireAuth';
 import ManageInventories from './components/ManageInventories/ManageInventories';
 import SingleInventory from './components/Inventory/SingleInventory';
@@ -15,7 +14,6 @@ import Footer from './components/Footer/Footer';
 import Blogs from './components/Blogs/Blogs';
 import Review from './components/Review/Review';
 import NewArrived from './components/NewArrived/NewArrived';
-import ReviewItem from './components/MyItems/ReviewItems';
 import ContactUs from './components/ContactUs/ContactUs';
 import AssociatedCompanies from './components/Review/AssociatedCompanies';
 
