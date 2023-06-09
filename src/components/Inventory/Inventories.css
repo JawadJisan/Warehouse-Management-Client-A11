@@ -36,5 +36,10 @@
 .inv-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  background-color: red;
+}
+@media only screen and (max-width: 600px) {
+  .inv-container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
